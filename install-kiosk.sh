@@ -78,23 +78,6 @@ prompt_poweroff_time() {
   done
 }
 
-prompt_secret_nonempty() {
-  local prompt="$1"
-  local value=""
-
-  while true; do
-    read -r -s -p "$prompt" value
-    printf '\n'
-    value="${value#"${value%%[![:space:]]*}"}"
-    value="${value%"${value##*[![:space:]]}"}"
-    if [[ -n "$value" ]]; then
-      printf '%s' "$value"
-      return 0
-    fi
-    printf 'Bitte einen Wert eingeben.\n'
-  done
-}
-
 ensure_not_root() {
   if [[ "$(id -u)" -eq 0 ]]; then
     fail "Bitte als normaler Benutzer starten, nicht als root."
@@ -404,7 +387,7 @@ main() {
   fi
 
   base_url="$(prompt_url)"
-  token="$(prompt_secret_nonempty 'Token: ')"
+  token="$(prompt_nonempty 'Token: ')"
   poweroff_time="$(prompt_poweroff_time)"
 
   full_url="${base_url%#}#${token}"
