@@ -15,7 +15,7 @@ Dieses Repo enthält ein Installationsskript für Ubuntu-Kiosk-Bildschirme. Das 
 Als Benutzer `vplan` im Terminal ausführen:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/schottschule/kiosk-screen/main/install-kiosk.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/schottschule/kiosk-screen/develop/install-kiosk.sh)
 ```
 
 Falls `curl` noch fehlt:
