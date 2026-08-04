@@ -357,7 +357,7 @@ Description=Power off kiosk daily at ${poweroff_time}
 
 [Timer]
 OnCalendar=*-*-* ${poweroff_time}:00
-Persistent=true
+Persistent=false
 
 [Install]
 WantedBy=timers.target
